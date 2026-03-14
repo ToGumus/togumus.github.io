@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toine GUMUS - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+</head>
+
+<body>
+    <nav class="navbar hidden-onload">
+        <a href="https://toinegumus.com" class="logo" style="text-decoration: none;">Toine GUMUS</a>
+        <div class="nav-menu" id="nav-menu">
+            <div class="nav-links">
+                <a href="#about" class="nav-link" data-i18n="nav_about">À propos</a>
+                <a href="#stack" class="nav-link" data-i18n="nav_stack">Stack</a>
+                <a href="#projects" class="nav-link" data-i18n="nav_projects">Projets</a>
+            </div>
+        </div>
+        <div class="nav-controls">
+            <div class="lang-toggle">
+                <button class="lang-btn" id="lang-btn" data-lang="fr">EN</button>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class="hero" id="about">
+
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="assets/video_bg.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+
+        <div class="hero-content">
+            <h1 class="hero-title fade-up" data-i18n="hero_title">Toine GUMUS</h1>
+            <p class="subtitle fade-up delay-1" data-i18n="hero_subtitle">Programmation, Électronique & Cybersécurité
+            </p>
+            <p class="description fade-up delay-1" data-i18n="hero_desc">
+                De la soudure de microcontrôleurs à l'analyse de signaux sur oscilloscope, la conception de PCB,
+                et l'exploration de la cybersécurité dans un home lab auto-hébergé.
+                Faire le pont entre matériel et logiciel.
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary fade-up" data-i18n="hero_btn">Voir les Projets</a>
+                <button class="btn btn-secondary fade-up" id="contact-btn" data-i18n="contact_btn">Contact</button>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="stack" id="stack">
+        <h2 class="section-title fade-in" data-i18n="stack_title">Technologies Utilisées</h2>
+
+
+        <div class="carousel-container fade-in">
+            <div class="carousel-track row-1">
+
+                <div class="stack-item">
+                    <i class="devicon-python-plain"></i>
+                    <span data-i18n="stack_python">Python</span>
+                </div>
+                <div class="stack-item">
+                    <i class="devicon-c-plain"></i>
+                    <span data-i18n="stack_c">C</span>
+                </div>
+                <div class="stack-item">
+                    <i class="devicon-cplusplus-plain"></i>
+                    <span data-i18n="stack_cpp">C++</span>
+                </div>
+                <div class="stack-item">
+                    <i class="devicon-javascript-plain"></i>
+                    <span data-i18n="stack_js">JavaScript</span>
+                </div>
+                <div class="stack-item">
+                    <i class="devicon-raspberrypi-plain"></i>
+                    <span data-i18n="stack_rpi">Raspberry Pi</span>
+                </div>
+                <div class="stack-item">
+                    <i class="devicon-linux-plain"></i>
+                    <span data-i18n="stack_linux">Linux</span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="carousel-container fade-in delay-1" style="margin-top: -1rem;">
+            <div class="carousel-track row-2 reverse">
+                <div class="stack-item">
+                    <i class="devicon-bash-plain"></i>
+                    <span data-i18n="stack_bash">Bash</span>
+                </div>
+                <div class="stack-item">
+                    <i class="devicon-arduino-plain"></i>
+                    <span data-i18n="stack_arduino">Arduino</span>
+                </div>
+                <div class="stack-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                        <rect x="9" y="9" width="6" height="6"></rect>
+                        <line x1="9" y1="1" x2="9" y2="4"></line>
+                        <line x1="15" y1="1" x2="15" y2="4"></line>
+                        <line x1="9" y1="20" x2="9" y2="23"></line>
+                        <line x1="15" y1="20" x2="15" y2="23"></line>
+                        <line x1="20" y1="9" x2="23" y2="9"></line>
+                        <line x1="20" y1="14" x2="23" y2="14"></line>
+                        <line x1="1" y1="9" x2="4" y2="9"></line>
+                        <line x1="1" y1="14" x2="4" y2="14"></line>
+                    </svg>
+                    <span data-i18n="stack_kicad">Conception PCB</span>
+                </div>
+                <div class="stack-item">
+                    <svg xmlns='http://www.w3.org/2000/svg' width="1em" height="1em" viewBox='0 0 24 24' fill='none'
+                        stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>
+                        <rect x='2' y='4' width='20' height='16' rx='2' ry='2'></rect>
+                        <path d='M2 12h4l2 -3 4 6 2 -3h8'></path>
+                    </svg>
+                    <span data-i18n="stack_osc">Oscilloscopes</span>
+                </div>
+                <div class="stack-item">
+                    <i class="devicon-docker-plain"></i>
+                    <span data-i18n="stack_docker">Docker</span>
+                </div>
+                <div class="stack-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                        </path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                    <span data-i18n="stack_3d">Impression 3D</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="projects" id="projects">
+        <h2 class="section-title fade-in" data-i18n="projects_title">Réalisations Principales</h2>
+        <div class="projects-grid">
+
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag" data-i18n="tag_sysadmin">SysAdmin</span>
+                    </div>
+                    <h3 class="project-title" data-i18n="p1_title">Home Lab</h3>
+                    <p class="project-desc" data-i18n="p1_desc">Une installation Raspberry Pi évolutive hébergeant des
+                        applications sécurisées et des sites web.</p>
+                    <div class="project-media">
+                        <img src="assets/homelab.jpeg" alt="Homelab" loading="lazy">
+                        <div class="zoom-indicator">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <polyline points="9 21 3 21 3 15"></polyline>
+                                <line x1="21" y1="3" x2="14" y2="10"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="project-card fade-in delay-1">
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag" data-i18n="tag_network">Réseau</span>
+                        <span class="tag" data-i18n="tag_cyber">Cybersécurité</span>
+                    </div>
+                    <h3 class="project-title" data-i18n="p2_title">WiFi Pineapple DIY</h3>
+                    <p class="project-desc" data-i18n="p2_desc">Un WiFi Pineapple DIY fabriqué à partir d'un routeur
+                        GL.iNet Shadow pour l'audit réseau et les tests d'intrusion.</p>
+                    <div class="project-media">
+                        <img src="assets/wifi_pineapple.jpeg" alt="WiFi Pineapple DIY" loading="lazy">
+                        <div class="zoom-indicator">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <polyline points="9 21 3 21 3 15"></polyline>
+                                <line x1="21" y1="3" x2="14" y2="10"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="project-card fade-in delay-2">
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag" data-i18n="tag_hw">Matériel</span>
+                        <span class="tag" data-i18n="tag_cyber">Cybersécurité</span>
+                    </div>
+                    <h3 class="project-title" data-i18n="p3_title">Appareil Bruce</h3>
+                    <p class="project-desc" data-i18n="p3_desc">Outil matériel de pentest personnalisé créé avec le
+                        firmware open-source 'bruce' pour ESP32.</p>
+                    <div class="project-media hover-video-container">
+                        <img src="assets/bruce_device.jpeg" alt="Bruce Device" class="default-media" loading="lazy">
+                        <video src="assets/bruce_video.mp4" class="hover-media" muted loop playsinline></video>
+                        <div class="zoom-indicator">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <polyline points="9 21 3 21 3 15"></polyline>
+                                <line x1="21" y1="3" x2="14" y2="10"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag" data-i18n="tag_storage">Stockage</span>
+                        <span class="tag" data-i18n="tag_sysadmin">SysAdmin</span>
+                    </div>
+                    <h3 class="project-title" data-i18n="p4_title">NAS Chiffré</h3>
+                    <p class="project-desc" data-i18n="p4_desc">Un serveur de stockage en réseau (NAS) utilisant 4
+                        disques durs chiffrés, accessible via une interface web sur un Raspberry Pi.</p>
+                    <div class="project-media">
+                        <img src="assets/nas.jpeg" alt="Encrypted NAS" loading="lazy">
+                        <div class="zoom-indicator">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <polyline points="9 21 3 21 3 15"></polyline>
+                                <line x1="21" y1="3" x2="14" y2="10"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="project-card fade-in delay-1">
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag" data-i18n="tag_python">Python</span>
+                        <span class="tag" data-i18n="tag_dashboard">Tableau de bord</span>
+                    </div>
+                    <h3 class="project-title" data-i18n="p5_title">DashboardPi</h3>
+                    <p class="project-desc" data-i18n="p5_desc">Un tableau de bord en Flask (Python) affichant des
+                        métriques en temps réel comme la température du Raspberry Pi, la température ambiante, le trafic
+                        réseau et l'état des disques.</p>
+                    <div class="project-media">
+                        <img src="assets/dashboard_pi.jpeg" alt="DashboardPi" loading="lazy">
+                        <div class="zoom-indicator">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <polyline points="9 21 3 21 3 15"></polyline>
+                                <line x1="21" y1="3" x2="14" y2="10"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in delay-2">
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag" data-i18n="tag_python">Python</span>
+                        <span class="tag" data-i18n="tag_sw">Logiciel</span>
+                    </div>
+                    <h3 class="project-title" data-i18n="p6_title">Tennis Access</h3>
+                    <p class="project-desc" data-i18n="p6_desc">Projet réalisé en classe : j'ai choisi de concevoir un système de contrôle d'accès avec un site web pour générer des QR codes, scannés par un script Python externe avec OpenCV pour ouvrir un portail.</p>
+                    <div class="project-media">
+                        <img src="assets/tennis.jpeg" alt="Tennis Access" loading="lazy">
+                        <div class="zoom-indicator">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <polyline points="9 21 3 21 3 15"></polyline>
+                                <line x1="21" y1="3" x2="14" y2="10"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <p><span class="year">2026</span> <span data-i18n="footer_text">Portfolio - Toine GUMUS</span></p>
+        <p style="margin-top: 0.5rem;"><a href="mailto:toinegumus@gmail.com"
+                class="footer-email">toinegumus@gmail.com</a></p>
+        <p class="video-credit">
+            <span data-i18n="video_credit">Images cinématiques par <a href='https://instagram.com/tprk.mp4'
+                    target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>Toprak
+                    YAPICI</a></span>
+            <a href="https://instagram.com/tprk.mp4" target="_blank" rel="noopener noreferrer"
+                style="color: var(--text-secondary); margin-left: 5px; text-decoration: none; display: inline-block; vertical-align: middle;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                </svg>
+            </a>
+        </p>
+    </footer>
+
+
+    <div id="media-modal" class="modal">
+        <span class="modal-close" id="modal-close">&times;</span>
+        <div class="modal-content">
+            <img id="modal-image" src="" alt="Project Media" style="display: none;">
+            <video id="modal-video" src="" controls style="display: none;"></video>
+        </div>
+    </div>
+
+
+    <div id="contact-modal" class="modal">
+        <span class="modal-close" id="contact-close">&times;</span>
+        <div class="modal-content contact-content">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="contact-icon">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <h3 data-i18n="contact_title" class="contact-title">Me Contacter</h3>
+            <a href="mailto:toinegumus@gmail.com" class="contact-email">toinegumus@gmail.com</a>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
