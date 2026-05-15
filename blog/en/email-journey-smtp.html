@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toine GUMUS - Emails: The SMTP Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+</head>
+
+<body>
+    <nav class="navbar hidden-onload">
+        <a href="../../index.html" class="logo" style="text-decoration: none;">Toine GUMUS</a>
+        <div class="nav-menu" id="nav-menu">
+            <div class="nav-links">
+                <a href="../../index.html#about" class="nav-link" data-i18n="nav_about">About</a>
+                <a href="../../index.html#stack" class="nav-link" data-i18n="nav_stack">Stack</a>
+                <a href="../../index.html#projects" class="nav-link" data-i18n="nav_projects">Projects</a>
+                <a href="../../blog.html" class="nav-link" data-i18n="nav_blog">Blog</a>
+            </div>
+        </div>
+        <div class="nav-controls">
+            <div class="lang-toggle">
+                <button class="lang-btn blog-lang-redirect" id="lang-btn" data-lang="en" data-redirect="../../blog/fr/voyage-email-smtp.html">FR</button>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" style="min-height: 40vh;">
+        <img src="../../assets/blog/smtp/main.jpeg" class="hero-bg-image" alt="SMTP Background">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title" style="font-size: 3.5rem;">Emails: The SMTP Protocol</h1>
+            <p class="subtitle">May 2026 • Toine GUMUS</p>
+            <div class="hero-actions">
+                <a href="#blog-content" class="btn btn-primary" data-i18n="read_article_btn">Read the Article</a>
+                <a href="../../blog.html" class="btn btn-secondary" data-i18n="back_to_blog">Back to Blog</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="stack" id="blog-content" style="padding-top: 2rem; padding-bottom: 4rem;">
+        <div class="container" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <article style="color: var(--text-color); line-height: 1.8;">
+                <p>We use it every day, yet email is one of the oldest technologies on the web (the first email was sent in <a href="https://en.wikipedia.org/wiki/History_of_email" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue);">1971</a>). As we saw in <a href="anatomie-requete-web.html" style="color: var(--accent-blue);">the anatomy of a web request</a>, the Internet relies on well-defined protocols. Sending emails is no exception to the rule, it relies on <strong>SMTP</strong>.</p>
+
+                <h2>SMTP</h2>
+
+                <div style="margin-left: 1.5rem;">
+                    <p><strong>Simple Mail Transfer Protocol (SMTP)</strong> is the protocol used to <strong>send</strong> messages from one server to another. It defines how a sending server communicates with a receiving server to transfer an email etc...</p>
+                    <p>Unlike instant messaging, email is not "pushed" directly to the recipient, or with only one server as an intermediary. It goes through a series of relays.</p>
+                </div>
+
+                <h2>The Step-by-Step Journey</h2>
+                <div style="margin-left: 1.5rem;">
+                    <p>When you click "Send," the process begins with the <strong>MUA (Mail User Agent)</strong>, which is your email client (like Infomaniak Mail or Proton Mail) preparing the message. Next, the <strong>MTA (Mail Transfer Agent)</strong> takes over. Your sending server receives the email and looks for the recipient's server using the <strong>MX</strong> DNS record (go see my article on <a href="dns-beyond-ip.html" style="color: var(--accent-blue);">DNS</a> I PROMISE it's interesting). During <strong>The Transfer</strong>, your MTA talks directly to the destination MTA via SMTP to hand over the message. Finally, the <strong>MDA (Mail Delivery Agent)</strong> receives it and stores the email safely in the recipient's inbox, here is a diagram to better illustrate this:</p>
+                    <img src="../../assets/blog/smtp/mail_journey_en.png" alt="Step-by-step journey of an email" style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                </div>
+
+                <h2>Why do my emails go to spam?</h2>
+                <div style="margin-left: 1.5rem;">
+                    <p>The original SMTP had no security, meaning anyone could pretend to be anyone (yes yes, changing the sender is child's play). To fix this, several main defenses were created. The first step is <strong>Ownership Verification</strong>, which involves proving to providers like Infomaniak or Proton that you actually own the domain. Then, protocols like <strong>SPF, DKIM, and DMARC</strong> are implemented as essential layers for preventing email spoofing and ensuring authenticity.</p>
+                    <img src="../../assets/blog/smtp/spf_en.png" alt="Securing emails with SPF" style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                </div>
+
+                <h2>POP3 vs IMAP</h2>
+                <div style="margin-left: 1.5rem;">
+                    <p>Once the email arrives, you need a way to read it (that would be nice anyway). That's where two other protocols come in. You can use <strong>POP3</strong>, which downloads the email to your device and usually deletes it from the server, making it perfect for a single device. Alternatively, you can use <strong>IMAP</strong>, which synchronizes messages so that what you see is an exact reflection of what is on the server, making it ideal for using multiple devices.</p>
+                    <img src="../../assets/blog/smtp/pop3_imap_en.png" alt="POP3 vs IMAP comparison" style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                </div>
+
+                <p>(I hope you enjoyed this article Mr. Amarcher, know that by doing this research my interest in how email protocols work has really grown, very interesting!)</p>
+
+                <hr style="margin: 3rem 0; border: 0; border-top: 1px solid rgba(255,255,255,0.1);">
+
+                <h2>Glossary</h2>
+                <p><strong>SMTP Relay:</strong> An intermediate server that transfers emails.</p>
+                <p><strong>Spoofing:</strong> A technique used to impersonate a sender.</p>
+                <p><strong>Port 587:</strong> The standard port recommended today for secure email sending. (Yes I didn't know where to put this in the article so I'm mentioning it here...)</p>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">↑ Back to top</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p><span class="year">2026</span> <span data-i18n="footer_text">Portfolio - Toine GUMUS</span></p>
+        <p style="margin-top: 0.5rem;"><a href="mailto:toinegumus@gmail.com"
+                class="footer-email">toinegumus@gmail.com</a></p>
+    </footer>
+
+    <div id="media-modal" class="modal">
+        <span class="modal-close" id="modal-close">&times;</span>
+        <div class="modal-content">
+            <img id="modal-image" src="" alt="Project Media" style="display: none;">
+            <video id="modal-video" src="" controls style="display: none;"></video>
+        </div>
+    </div>
+
+    <script src="../../js/script.js"></script>
+</body>
+
+</html>

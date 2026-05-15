@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toine GUMUS - The DNS System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+</head>
+
+<body>
+    <nav class="navbar hidden-onload">
+        <a href="../../index.html" class="logo" style="text-decoration: none;">Toine GUMUS</a>
+        <div class="nav-menu" id="nav-menu">
+            <div class="nav-links">
+                <a href="../../index.html#about" class="nav-link" data-i18n="nav_about">About</a>
+                <a href="../../index.html#stack" class="nav-link" data-i18n="nav_stack">Stack</a>
+                <a href="../../index.html#projects" class="nav-link" data-i18n="nav_projects">Projects</a>
+                <a href="../../blog.html" class="nav-link" data-i18n="nav_blog">Blog</a>
+            </div>
+        </div>
+        <div class="nav-controls">
+            <div class="lang-toggle">
+                <button class="lang-btn blog-lang-redirect" id="lang-btn" data-lang="en" data-redirect="../../blog/fr/dns-au-dela-ip.html">FR</button>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" style="min-height: 40vh;">
+        <img src="../../assets/blog/dns/main.jpeg" class="hero-bg-image" alt="DNS Background">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title" style="font-size: 3.5rem;">The DNS System</h1>
+            <p class="subtitle">May 2026 • Toine GUMUS</p>
+            <div class="hero-actions">
+                <a href="#blog-content" class="btn btn-primary" data-i18n="read_article_btn">Read the Article</a>
+                <a href="../../blog.html" class="btn btn-secondary" data-i18n="back_to_blog">Back to Blog</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="stack" id="blog-content" style="padding-top: 2rem; padding-bottom: 4rem;">
+        <div class="container" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <article style="color: var(--text-color); line-height: 1.8;">
+                <p>In my previous article on <a href="anatomie-requete-web.html" style="color: var(--accent-blue);">the anatomy of a web request</a>, we saw how DNS transforms a domain name into an IP address. But how does this process actually work? And what other information can DNS handle? Let's check it all out.</p>
+                
+                <h2>The DNS Resolution Process</h2>
+                <p>When you type a domain name into your browser, a series of steps is triggered to find the corresponding IP address. This is called <strong>DNS resolution</strong>.</p>
+                <img src="../../assets/blog/dns/dns_resolution_en.png" alt="DNS Resolution Process"
+                    style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                <p>This process follows a strict hierarchy, here it is in case the diagram isn't enough:</p>
+                <div style="margin-left: 1.5rem; margin-bottom: 2rem;">
+                    <p><strong>1. The DNS Resolver:</strong> Usually provided by your ISP. It queries other servers on your behalf.</p>
+                    <p><strong>2. The Root Server:</strong> It doesn't know the final IP address but knows which server manages the requested extension (like <code>.com</code> or <code>.fr</code>).</p>
+                    <p><strong>3. The TLD (Top-Level Domain) Server:</strong> It manages the extension and redirects to the server that has authority over the specific domain (e.g., <code>infomaniak.com</code>).</p>
+                    <p><strong>4. The Authoritative Server:</strong> This is the final server holding the official record (the <strong>DNS zone</strong>) with all the specific domain entries. It returns the answer to the resolver, which sends it to your computer.</p>
+                </div>
+
+                <p>But heads up, this distributed database is much more than a simple "phonebook", because it is capable of managing many other types of information through <strong>DNS records</strong>.</p>
+
+                <h2>A & AAAA Records, the Basics</h2>
+                <div style="margin-left: 1.5rem;">
+                    <p>These are the most common records. They provide the direct link between a name and an IP address.</p>
+                    <p>The <strong>A Record</strong> is used for standard IPv4 addresses (e.g., 185.125.25.1), while the <strong>AAAA Record</strong> is designed for IPv6 addresses, which are much longer (128 bits, compared to 32 bits for IPv4, 2^128 is quite a lot).</p>
+                    <img src="../../assets/blog/dns/a_record.png" alt="Example A Record" style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <p>Without them, you would have to remember IP addresses for every website.</p>
+
+                </div>
+
+                <h2>CNAME, the Alias</h2>
+                <div style="margin-left: 1.5rem;">
+                    <p>The <strong>Canonical Name (CNAME)</strong> allows you to create an alias from one domain to another. Instead of pointing to an IP, it points to another domain name.</p>
+                    <p>This is very useful for managing domains like <code>www.toinegumus.com</code> which points to <code>togumus.github.io</code>.</p>
+                    <img src="../../assets/blog/dns/cname_record.png" alt="CNAME Mechanism" style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                </div>
+
+                <h2>MX, Mail Direction</h2>
+                <div style="margin-left: 1.5rem;">
+                    <p>The <strong>Mail Exchanger (MX)</strong> record indicates which server is responsible for receiving emails for your domain. It is a key piece of the <a href="email-journey-smtp.html" style="color: var(--accent-blue);">SMTP protocol</a>.</p>
+                    <p>It has a unique feature: <strong>priority</strong>. You can define multiple MX servers; the system will first attempt to deliver the message to the server with the lowest priority value.</p>
+                    <img src="../../assets/blog/dns/mx_record.png" alt="MX Record Priorities" style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                </div>
+
+                <h2>TXT, the Multi-tool</h2>
+                <div style="margin-left: 1.5rem;">
+                    <p>As the name suggests, it contains plain text. It is used for a variety of security and verification functions, especially for <a href="email-journey-smtp.html" style="color: var(--accent-blue);">securing your emails</a>! A primary use case is <strong>Ownership Verification</strong>, which proves to services like Infomaniak or Proton that you actually own the domain. It is also used to configure <strong>SPF, DKIM, and DMARC</strong>, which are essential protocols for preventing email spoofing.</p>
+                    <img src="../../assets/blog/dns/spf_en.png" alt="TXT Verification and Security" style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                </div>
+
+                <h2 id="ttl">TTL, the Secret of Propagation</h2>
+                <div style="margin-left: 1.5rem;">
+                    <p>The <strong>Time To Live (TTL)</strong> is not a record, but a value associated with every DNS data point. It tells resolvers how long (in seconds) they can keep the information in cache before needing to request an update.</p>
+                    <p>This is why a server change can take several hours to be visible worldwide: this is what we call <strong>DNS propagation</strong>. (Come on, another little diagram, they took me some time but they look nice, don't they? ;) )</p>
+                    <img src="../../assets/blog/dns/dns_propagation_en.png" alt="TTL and DNS Propagation" style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                </div>
+
+                <h2>Case Study, Analyzing a Real Configuration</h2>
+                <p>Here is a concrete example of a DNS management interface (Cloudflare). We can see several concepts mentioned above:</p>
+                <img src="../../assets/blog/dns/cloudflare_screen.png" alt="Cloudflare DNS Configuration" style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                <p>Instead of an A record, <a href="https://developers.cloudflare.com/tunnel/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue);"><strong>The Tunnel</strong></a> establishes a secure connection to expose a service without opening ports on my router (well, my "internet box", thanks Free). You can also see <strong>MX Priorities</strong> in action, where multiple mail servers with different priorities (10, 15, 20) are set up to ensure reliable message delivery (PS: the <strong>Proxy Status</strong> showing as "Proxied" indicates that traffic flows through Cloudflare's network for added security).</p>
+
+                <p>Another interesting example (this site's domain!):</p>
+                <img src="../../assets/blog/dns/dns_toinegumuscom.png" alt="DNS Configuration for toinegumus.com" style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                <p>This configuration uses <strong>Multiple A Records</strong>, meaning there are four IPs for the same domain. This setup allows for <a href="https://www.cloudns.net/blog/round-robin-load-balancing/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue);">"Round Robin"</a> (simple load balancing) and provides redundancy if one of GitHub's servers goes down. Additionally, we can see the <strong>CNAME for www</strong>. In fact, <code>www.toinegumus.com</code> does not have its own IP address in the DNS zone. Instead, the CNAME record states that <code>www</code> points to <code>togumus.github.io</code>, and DNS then resolves <code>togumus.github.io</code> to the actual GitHub Pages infrastructure. So "alias" is exactly the right concept for a CNAME record!</p>
+
+                <p>And here is what you get when querying the same data from a terminal using the <code>dig</code> command:</p>
+                <img src="../../assets/blog/dns/dig_toinegumus.png" alt="dig command for toinegumus.com" style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                <p>We can see the exact same four IP addresses configured in the Cloudflare panel. DNS in action!</p>
+
+
+
+                <hr style="margin: 3rem 0; border: 0; border-top: 1px solid rgba(255,255,255,0.1);">
+
+
+                <h2>Glossary</h2>
+                <p><strong>DNS Zone:</strong> A portion of the DNS namespace managed by a specific entity.</p>
+                <p><strong>Propagation:</strong> The time required for DNS changes to be distributed across all servers worldwide.</p>
+                <p><strong>Resolver:</strong> The server that queries the DNS hierarchy to provide you with the final answer.</p>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">↑ Back to top</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p><span class="year">2026</span> <span data-i18n="footer_text">Portfolio - Toine GUMUS</span></p>
+        <p style="margin-top: 0.5rem;"><a href="mailto:toinegumus@gmail.com"
+                class="footer-email">toinegumus@gmail.com</a></p>
+    </footer>
+
+    <div id="media-modal" class="modal">
+        <span class="modal-close" id="modal-close">&times;</span>
+        <div class="modal-content">
+            <img id="modal-image" src="" alt="Project Media" style="display: none;">
+            <video id="modal-video" src="" controls style="display: none;"></video>
+        </div>
+    </div>
+
+    <script src="../../js/script.js"></script>
+</body>
+
+</html>

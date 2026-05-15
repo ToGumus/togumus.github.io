@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toine GUMUS - Complete anatomy of a web request</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+</head>
+
+<body>
+    <nav class="navbar hidden-onload">
+        <a href="../../index.html" class="logo" style="text-decoration: none;">Toine GUMUS</a>
+        <div class="nav-menu" id="nav-menu">
+            <div class="nav-links">
+                <a href="../../index.html#about" class="nav-link" data-i18n="nav_about">About</a>
+                <a href="../../index.html#stack" class="nav-link" data-i18n="nav_stack">Stack</a>
+                <a href="../../index.html#projects" class="nav-link" data-i18n="nav_projects">Projects</a>
+                <a href="../../blog.html" class="nav-link" data-i18n="nav_blog">Blog</a>
+            </div>
+        </div>
+        <div class="nav-controls">
+            <div class="lang-toggle">
+                <button class="lang-btn blog-lang-redirect" id="lang-btn" data-lang="en"
+                    data-redirect="../../blog/fr/anatomie-requete-web.html">FR</button>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" style="min-height: 40vh;">
+        <img src="../../assets/blog/web_request/main.jpeg" class="hero-bg-image" alt="Blog Background">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title" style="font-size: 3.5rem;">Complete anatomy of a web request</h1>
+            <p class="subtitle">May 2026 • Toine GUMUS</p>
+            <div class="hero-actions">
+                <a href="#blog-content" class="btn btn-primary" data-i18n="read_article_btn">Read the Article</a>
+                <a href="../../blog.html" class="btn btn-secondary" data-i18n="back_to_blog">Back to Blog</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="stack" id="blog-content" style="padding-top: 2rem; padding-bottom: 4rem;">
+        <div class="container" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <article style="color: var(--text-color); line-height: 1.8;">
+                <h2>Entering the URL in the browser</h2>
+                <div style="margin-left: 1.5rem;">
+                    <p>The browser receives the entered address:</p>
+                    <pre><code>https://www.infomaniak.com</code></pre>
+                    <img src="../../assets/blog/web_request/infomaniakdotcom.png" alt="Infomaniak URL"
+                        style="max-width: 100%; margin: 1rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <p>This action triggers a series of operations to establish an effective network connection.</p>
+                </div>
+
+                <h2>Local checks (caches and system)</h2>
+                <div style="margin-left: 1.5rem;">
+                    <p>Before querying the network, the system verifies local resources. It first consults the browser's own DNS cache, then the operating system's DNS cache, and finally checks the <code>/etc/hosts</code> file which contains manual mappings.</p>
+                    <img src="../../assets/blog/web_request/cat_hosts.png" alt="Content of /etc/hosts file"
+                        style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+
+                    <p>If the IP address is found locally, the DNS resolution process is bypassed. Otherwise, an
+                        external request is initiated.</p>
+                </div>
+
+                <h2>The role of /etc/resolv.conf</h2>
+                <div style="margin-left: 1.5rem;">
+                    <p>On Linux, the configuration of DNS resolvers is managed by the <code>/etc/resolv.conf</code>
+                        file. This file contains the IP addresses of the servers the system should contact to translate
+                        a domain name into an IP address.</p>
+                    <img src="../../assets/blog/web_request/resolve_conf.png" alt="/etc/resolv.conf file"
+                        style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <div style="display: flex; align-items: center; gap: 2rem; margin: 1.5rem 0;">
+                        <img src="../../assets/blog/web_request/free_logo.png" alt="Free Logo"
+                            style="height: 50px; opacity: 0.8;">
+                        <p style="margin: 0;">These servers can be provided by the local network via DHCP or configured
+                            statically.</p>
+                    </div>
+                    <p>For those looking to protect their privacy, European alternatives like Mullvad DNS allow users to
+                        move away from default ISP resolvers.</p>
+                    <img src="../../assets/blog/web_request/mullvad_dns.png" alt="Mullvad DNS"
+                        style="max-width: 100%; margin: 1rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <p>This file determines the starting point for any domain-name-based outgoing communication.</p>
+                </div>
+
+                <h2>Domain name resolution</h2>
+                <p>The system issues a request to obtain the IP address associated with <code>www.infomaniak.com</code>.
+                    This process follows a precise hierarchical structure:</p>
+
+                <h3>DNS Resolver (ISP or configured)</h3>
+                <div style="margin-left: 1.5rem;">
+                    <p>The request is sent to the defined resolver. If the resolver does not have the answer in its
+                        cache, it begins a recursive resolution. This is where <strong>DNS (Domain Name System)</strong>
+                        comes in, the Internet's phonebook. To learn more about this, check out my article on <a
+                            href="dns-beyond-ip.html" style="color: var(--accent-blue);">DNS</a>.</p>
+                    <img src="../../assets/blog/web_request/dig_infomaniak.png" alt="dig command for infomaniak.com"
+                        style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                </div>
+
+                <h3>Recursive resolution</h3>
+                <div style="margin-left: 1.5rem;">
+                    <p>The resolver performs the search by querying a sequence of servers. It begins with the root DNS servers (.), then contacts the Top-level domain servers (like the .com TLD), and finally asks the authoritative servers responsible for the specific domain.</p>
+                </div>
+
+                <h3>DNS hierarchy steps</h3>
+                <div style="margin-left: 1.5rem;">
+                    <p>The root servers redirect to the servers managing the <code>.com</code> extension. These, in
+                        turn, point to the hosting provider's DNS servers, in this case, Infomaniak, which provide the
+                        final public IP address.</p>
+                    <img src="../../assets/blog/web_request/dns_resolution_en.png" alt="DNS Resolution Process"
+                        style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                </div>
+
+                <h3>Caching</h3>
+                <div style="margin-left: 1.5rem;">
+                    <p>The response is stored at several levels (resolver, system, browser) for a defined duration (<a href="dns-beyond-ip.html#ttl" style="color: var(--accent-blue);">TTL</a>)
+                        to speed up future lookups.</p>
+                    <img src="../../assets/blog/web_request/dns_cache_en.png" alt="DNS Caching"
+                        style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                </div>
+
+                <h2>Establishing the network connection</h2>
+                <p>Once the IP address is identified, the system initializes communication with the remote server.</p>
+
+                <h3>TCP Handshake (Three-way handshake)</h3>
+                <div style="margin-left: 1.5rem;">
+                    <p>A three-step exchange establishes a reliable connection. The client first sends a <strong>SYN</strong> packet to request a connection. The server responds with a <strong>SYN-ACK</strong> to acknowledge and agree to the request. Finally, the client sends an <strong>ACK</strong> to confirm the connection.</p>
+                    <img src="../../assets/blog/web_request/tcp_diagram_en.png" alt="TCP Handshake Diagram"
+                        style="max-width: 100%; margin: 2rem 0; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+                    <p>The TCP connection is then active.</p>
+                </div>
+
+                <h2>Securing via TLS (HTTPS)</h2>
+                <p>For a secure connection, a TLS encryption layer is added.</p>
+
+                <h3>TLS handshake</h3>
+                <div style="margin-left: 1.5rem;">
+                    <p>The browser verifies the SSL certificate's validity, its certificate authority, and the match
+                        with the visited domain.</p>
+                    <img src="../../assets/blog/web_request/asymmetric_crypto_en.png" alt="TLS Asymmetric Encryption"
+                        style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                </div>
+
+                <h3>Key exchange</h3>
+                <div style="margin-left: 1.5rem;">
+                    <p>Using protocols like <a href="https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue);"><strong>ECDHE</strong></a> allows the generation of a symmetric session key to encrypt all future
+                        exchanges.</p>
+                    <img src="../../assets/blog/web_request/symmetric_crypto_en.png" alt="TLS Symmetric Encryption"
+                        style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                </div>
+
+                <h2>HTTP Request</h2>
+                <p>The browser transmits the actual request, including the method, host, and necessary headers:</p>
+                <img src="../../assets/blog/web_request/http_en.png" alt="Example HTTP Request"
+                    style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+
+                <h2>Routing through the network</h2>
+                <p>The data packet crosses several infrastructures before reaching its destination: the local network,
+                    the ISP backbone, Internet exchange points, and finally the destination datacenter.</p>
+
+                <h3>NAT (Network Address Translation)</h3>
+                <div style="margin-left: 1.5rem;">
+                    <p>The local router translates the system's private IP address into a public IP address usable on
+                        the Internet.</p>
+                </div>
+
+
+                <h2>Target infrastructure processing (Infomaniak)</h2>
+                <p>Upon arrival at the datacenter:</p>
+
+                <h3>Load Balancers</h3>
+                <div style="margin-left: 1.5rem;">
+                    <p>They distribute incoming requests across the various nodes of a Kubernetes cluster to optimize
+                        performance and ensure high availability.</p>
+                    <img src="../../assets/blog/web_request/loadbalancer_en.png" alt="Load Balancer"
+                        style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <p><em>(I looked a bit more into Kubernetes and its use cases, I think I'll use it since I just got 2 new second-hand computers for my homelab!)</em></p>
+                </div>
+
+
+
+                <h2>HTTP Response</h2>
+                <p>The server returns the requested content along with a status code (e.g., 200 OK):</p>
+                <img src="../../assets/blog/web_request/http_response_en.png" alt="Example HTTP Response"
+                    style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+
+
+                <h2>The return path</h2>
+                <p>The response follows the reverse path through the Internet to reach the initial system.</p>
+
+                <h2>Browser rendering</h2>
+                <p>The browser processes the received data by analyzing the HTML code to build the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue);"><strong>DOM</strong></a>, applying the CSS styles, executing any JavaScript, and loading secondary resources such as images and fonts.</p>
+                <img src="../../assets/blog/web_request/infomaniak_page.png" alt="Final render of the Infomaniak page"
+                    style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+
+
+                <h2>Content Delivery Networks (CDN)</h2>
+                <p>Using a Content Delivery Network (CDN) significantly reduces latency by caching site content as close
+                    to users as possible, on servers distributed all around the globe.</p>
+                <div style="display: flex; align-items: center; gap: 2rem; margin: 1.5rem 0;">
+                    <img src="../../assets/blog/web_request/cloudflare_logo.png" alt="Cloudflare Logo"
+                        style="height: 50px; opacity: 0.8;">
+                    <p style="margin: 0;"><strong>Cloudflare</strong> is currently one of the most popular CDN providers in the world, but the technology is a web standard offered by many infrastructure players.</p>
+                </div>
+                <img src="../../assets/blog/web_request/cdn_en.png" alt="How a CDN works"
+                    style="max-width: 100%; margin: 1.5rem 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+
+                <hr style="margin: 3rem 0; border: 0; border-top: 1px solid rgba(255,255,255,0.1);">
+
+
+                <p><strong>ISP:</strong> Internet Service Provider (e.g., Starlink, Comcast, Infomaniak).</p>
+                <p><strong>DNS:</strong> Domain Name System. The "phonebook" of the Internet that translates domain names into IP addresses.</p>
+                <p><strong>IP:</strong> Internet Protocol. The unique address identifying every device on a network.</p>
+                <p><strong>TCP:</strong> Transmission Control Protocol. A protocol that ensures reliable and ordered delivery of data.</p>
+                <p><strong>TLS/SSL:</strong> Protocols used to secure communication through encryption.</p>
+                <p><strong>HTTP/HTTPS:</strong> HyperText Transfer Protocol.</p>
+                <p><strong>NAT:</strong> Network Address Translation. A method for multiple devices on a private network to share a single public IP address.</p>
+                <p><strong>CDN:</strong> Content Delivery Network. A network of distributed servers used to speed up content delivery.</p>
+                <p><strong>Kubernetes:</strong> A container orchestration tool used to automate deployment and management of applications.</p>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">↑ Back to
+                        top</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p><span class="year">2026</span> <span data-i18n="footer_text">Portfolio - Toine GUMUS</span></p>
+        <p style="margin-top: 0.5rem;"><a href="mailto:toinegumus@gmail.com"
+                class="footer-email">toinegumus@gmail.com</a></p>
+    </footer>
+
+    <div id="media-modal" class="modal">
+        <span class="modal-close" id="modal-close">&times;</span>
+        <div class="modal-content">
+            <img id="modal-image" src="" alt="Project Media" style="display: none;">
+            <video id="modal-video" src="" controls style="display: none;"></video>
+        </div>
+    </div>
+
+    <script src="../../js/script.js"></script>
+</body>
+
+</html>

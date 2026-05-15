@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toine GUMUS - Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+</head>
+
+<body>
+    <nav class="navbar hidden-onload">
+        <a href="index.html" class="logo" style="text-decoration: none;">Toine GUMUS</a>
+        <div class="nav-menu" id="nav-menu">
+            <div class="nav-links">
+                <a href="index.html#about" class="nav-link" data-i18n="nav_about">À propos</a>
+                <a href="index.html#stack" class="nav-link" data-i18n="nav_stack">Stack</a>
+                <a href="index.html#projects" class="nav-link" data-i18n="nav_projects">Projets</a>
+                <a href="blog.html" class="nav-link" data-i18n="nav_blog">Blog</a>
+            </div>
+        </div>
+        <div class="nav-controls">
+            <div class="lang-toggle">
+                <button class="lang-btn" id="lang-btn" data-lang="fr">EN</button>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class="hero" style="min-height: 60vh;">
+        <img src="assets/general/blog.jpeg" class="hero-bg-image" alt="Blog Background">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title" data-i18n="nav_blog">Blog</h1>
+            <p class="subtitle" data-i18n="blog_subtitle">Articles et réflexions</p>
+            <div class="hero-actions">
+                <a href="#blog-content" class="btn btn-primary" data-i18n="read_articles">Lire les articles</a>
+                <a href="index.html" class="btn btn-secondary" data-i18n="back_home">Retour au portfolio</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="projects" id="blog-content" style="min-height: 40vh;">
+        <div class="projects-grid" style="max-width: 1200px; margin: 0 auto;">
+
+            <a href="blog/fr/anatomie-requete-web.html" style="text-decoration: none; color: inherit;" class="blog-link"
+                data-fr="blog/fr/anatomie-requete-web.html" data-en="blog/en/anatomie-requete-web.html">
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag" data-i18n="tag_network">Réseau</span>
+                            <span class="tag" data-i18n="tag_sw">Logiciel</span>
+                        </div>
+                        <h3 class="project-title" data-i18n="blog_1_title">Anatomie complète d'une requête web</h3>
+                        <p class="project-desc" data-i18n="blog_1_desc">Avez-vous déjà réfléchi à ce qui se passe
+                            lorsque vous tapez une URL dans votre navigateur ?</p>
+                        <div class="project-media">
+                            <img src="assets/blog/web_request/main.jpeg" alt="Anatomie requête web" loading="lazy"
+                                style="height: 200px;">
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="blog/fr/dns-au-dela-ip.html" style="text-decoration: none; color: inherit;" class="blog-link"
+                data-fr="blog/fr/dns-au-dela-ip.html" data-en="blog/en/dns-beyond-ip.html">
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag" data-i18n="tag_network">Réseau</span>
+                            <span class="tag" data-i18n="tag_cyber">Cybersécurité</span>
+                        </div>
+                        <h3 class="project-title" data-i18n="blog_2_title">Les différents enregistrements DNS</h3>
+                        <p class="project-desc" data-i18n="blog_2_desc">Découvrez comment les différents enregistrements
+                            DNS (CNAME, MX, TXT) font fonctionner l'Internet.</p>
+                        <div class="project-media">
+                            <img src="assets/blog/dns/main.jpeg" alt="DNS Records" loading="lazy"
+                                style="height: 200px; object-fit: cover; width: 100%;">
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="blog/fr/voyage-email-smtp.html" style="text-decoration: none; color: inherit;" class="blog-link"
+                data-fr="blog/fr/voyage-email-smtp.html" data-en="blog/en/email-journey-smtp.html">
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag" data-i18n="tag_network">Réseau</span>
+                            <span class="tag" data-i18n="tag_protocol">Protocole</span>
+                        </div>
+                        <h3 class="project-title" data-i18n="blog_3_title">Emails : Le protocole SMTP</h3>
+                        <p class="project-desc" data-i18n="blog_3_desc">Découvrez comment vos messages traversent
+                            l'Internet et pourquoi ils finissent parfois en spam.</p>
+                        <div class="project-media">
+                            <img src="assets/blog/smtp/main.jpeg" alt="SMTP Journey" loading="lazy"
+                                style="height: 200px; object-fit: cover; width: 100%;">
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p><span class="year">2026</span> <span data-i18n="footer_text">Portfolio - Toine GUMUS</span></p>
+        <p style="margin-top: 0.5rem;"><a href="mailto:toinegumus@gmail.com"
+                class="footer-email">toinegumus@gmail.com</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
